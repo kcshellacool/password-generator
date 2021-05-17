@@ -12,7 +12,7 @@ function passwordgen() {
 
     var pool = '';
     var password = '';
-
+/*generate password*/
     if (numericselect == true) {
         pool += numeric;
     }
@@ -29,6 +29,8 @@ function passwordgen() {
     for (let i = 0; i < length; i++) {
         password += pool.charAt(Math.floor(Math.random()*pool.length));
     } 
+
+    
 
     var showpassword = document.getElementById("password-gen");
     showpassword.innerHTML = password;
