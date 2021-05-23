@@ -12,24 +12,41 @@ function passwordgen() {
 
     var pool = '';
     var password = '';
+    var guaranteed = '';
+
 /*generate password*/
     if (numericselect == true) {
         pool += numeric;
+        guaranteed += numeric.charAt(Math.floor(Math.random()*numeric.length));
     }
     if (lowercaseselect == true) {
         pool += lowercase;
+        guaranteed += lowercase.charAt(Math.floor(Math.random()*lowercase.length));
     }
     if (uppercaseselect == true) {
         pool += uppercase;
+        guaranteed += uppercase.charAt(Math.floor(Math.random()*uppercase.length));
     }
     if (specialselect == true) {
         pool += special;
+        guaranteed += special.charAt(Math.floor(Math.random()*special.length));
     }
 
-    for (let i = 0; i < length; i++) {
-        password += pool.charAt(Math.floor(Math.random()*pool.length));
-    } 
+    
 
+    for (let i = 0; i <length - guaranteed.length; i++) {
+            password += pool.charAt(Math.floor(Math.random()*pool.length));
+        } 
+
+    console.log(password)
+
+    
+    password += guaranteed;
+
+
+
+    console.log(guaranteed)
+    console.log(password)
     
 
     var showpassword = document.getElementById("password-gen");
